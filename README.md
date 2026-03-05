@@ -62,3 +62,32 @@
 2.  Kode tersebut menyebabkan error **NullPointerException**. Hal ini terjadi karena baris pertama `new Mahasiswa[3]` hanya membuat array yang mampu menampung 3 objek, namun setiap elemen di dalam array tersebut (indeks 0, 1, dan 2) masih bernilai `null` (belum diinstansiasi). Agar tidak error, harus dilakukan instansiasi objek pada indeks yang dituju terlebih dahulu, misalnya: `myArrayOfMahasiswa[0] = new Mahasiswa();`.
 
 ---
+
+#   Percobaan 3
+
+##  Soal
+
+1.  Berdasarkan uji coba 3.4, apa kegunaan dari baris kode berikut?
+    ```java
+    arrayOfMataKuliah[i] = new MataKuliah23(kode, nama, sks, jumlahJam);
+    ```
+
+2.  Mengapa pada kode program tersebut tidak ada perintah `arrayOfMataKuliah[i] = new MataKuliah23();` seperti pada percobaan sebelumnya?
+
+3.  Apa keuntungan menggunakan konstruktor berparameter dibandingkan dengan pengisian atribut satu per satu secara manual?
+
+4.  Misalkan kita ingin menambahkan atribut baru yaitu `hari` pada class `MataKuliah23`, perubahan apa saja yang perlu dilakukan pada konstruktor?
+
+---
+
+##  Jawaban
+
+1.  Baris tersebut berfungsi untuk melakukan instansiasi objek sekaligus menginisialisasi atribut (kode, nama, sks, jumlah jam) dalam satu baris melalui konstruktor berparameter. Objek yang telah dibuat kemudian disimpan ke dalam array `arrayOfMataKuliah` pada indeks ke-i.
+
+2.  Karena pada class `MataKuliah23` telah dibuat konstruktor berparameter secara manual. Dalam Java, jika kita mendefinisikan konstruktor sendiri, maka Java tidak akan membuatkan konstruktor default (konstruktor kosong) secara otomatis.
+
+3.  Keuntungannya adalah kode menjadi lebih ringkas dan efisien. Kita tidak perlu menuliskan baris kode pengisian atribut satu per satu setelah objek dibuat. Selain itu, konstruktor menjamin bahwa objek selalu memiliki data yang diperlukan sejak pertama kali diciptakan.
+
+4.  Perubahan yang perlu dilakukan adalah:
+    * Menambahkan parameter baru (misalnya `String hari`) ke dalam header konstruktor.
+    * Menambahkan baris `this.hari = hari;` di dalam body konstruktor untuk memetakan parameter ke atribut class.
