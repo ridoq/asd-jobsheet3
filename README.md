@@ -38,3 +38,27 @@
 
 ---
 
+#   Percobaan 2
+
+##  Soal
+
+1.  Tambahkan method `cetakInfo()` pada class Mahasiswa kemudian modifikasi kode program pada langkah no 3.
+2.  Misalkan Anda punya array baru bertipe array of Mahasiswa dengan nama `myArrayOfMahasiswa`. Mengapa kode berikut menyebabkan error?
+
+    ```java
+    Mahasiswa[] myArrayOfMahasiswa = new Mahasiswa[3];
+    myArrayOfMahasiswa[0].nim = "244107060033";
+    myArrayOfMahasiswa[0].nama = "AGNES TITANIA KINANTI";
+    myArrayOfMahasiswa[0].kelas = "SIB-1E";
+    myArrayOfMahasiswa[0].ipk = (float) 3.75;
+    ```
+
+---
+
+##  Jawaban
+
+1.  Dengan menambahkan method `cetakInfo()` pada class Mahasiswa23, proses penampilan data pada class MahasiswaDemo23 menjadi lebih ringkas. Kita cukup memanggil `arrayOfMahasiswa[i].cetakInfo()` di dalam perulangan tanpa harus menuliskan perintah System.out.println secara berulang untuk setiap atribut di main class.
+
+2.  Kode tersebut menyebabkan error **NullPointerException**. Hal ini terjadi karena baris pertama `new Mahasiswa[3]` hanya membuat array yang mampu menampung 3 objek, namun setiap elemen di dalam array tersebut (indeks 0, 1, dan 2) masih bernilai `null` (belum diinstansiasi). Agar tidak error, harus dilakukan instansiasi objek pada indeks yang dituju terlebih dahulu, misalnya: `myArrayOfMahasiswa[0] = new Mahasiswa();`.
+
+---
